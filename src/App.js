@@ -11,6 +11,7 @@ function App() {
   return (
     <Box width="400px" sx={{ width: { xl: "1488px" } }}>
       <Navbar />
+      {/* BrowserRouter set in index.js */}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/exercise/:id" element={<ExerciseDetail />}></Route>
