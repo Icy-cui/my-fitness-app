@@ -3,16 +3,13 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
-export default function SearchExercises({
-  setExercises,
-  bodyPart,
-  setBodyPart,
-}) {
+export default function SearchExercises({ setExercises, bodyPart, setBodyPart }) {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
+      // fetch data function from utils.fetchData function
       const bodyPartsData = await fetchData(
         "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
         exerciseOptions
@@ -24,9 +21,8 @@ export default function SearchExercises({
     fetchExercisesData();
   }, []);
 
+  // fetch data: get exercise data from rapid api
   const handleSearch = async () => {
-    console.log("API Key:", process.env.REACT_APP_RAPID_API_KEY);
-
     if (search) {
       const exercisesData = await fetchData(
         "https://exercisedb.p.rapidapi.com/exercises",
