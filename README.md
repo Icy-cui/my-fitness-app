@@ -27,3 +27,8 @@ You can run this project by running command `npm start`
 3.  Horizontal scroll bar (use specific version of react-horizontal-scrolling-menu)
 4.  Search results
 
+## Exercise component
+1. Exercise section
+   1. Fetch data based on key words and search parameters
+   2. Render graph and title
+2. Each Exercise Card
