@@ -21,8 +21,12 @@ export default function ExerciseDetail() {
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
       setExerciseDetail(exerciseDetailData);
 
+      // youtube 对应视频数据
       const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
+      console.log(exerciseVideosData)
       setExerciseVideos(exerciseVideosData.contents);
+
+      
     };
 
     fetchExercisesData();
@@ -33,7 +37,7 @@ export default function ExerciseDetail() {
   return (
     <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
     <Detail exerciseDetail={exerciseDetail} />
-    <ExerciseVideos />
+    <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
     <SimilarExercises />
   </Box>
   )
