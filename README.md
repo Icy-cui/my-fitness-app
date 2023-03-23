@@ -32,3 +32,16 @@ You can run this project by running command `npm start`
    1. Fetch data based on key words and search parameters
    2. Render graph and title
 2. Each Exercise Card
+   
+## Exercise Detail component
+1. Exercise detailed information
+   1. pass parameters from Homepage to Detail component
+   2. render bodyPart, gifUrl, name, target, equipment in exerciseDetail
+2. Exercise video
+   1. Use Component: Horizontal scroll bar
+   2. get youtube video data (video img, id, name etc.) from Rapid api provided
+   3. render these information in exercise detail page
+3. Similar Exercises
+   1. Use Component: Horizontal scroll bar
+   2. Get similar exercise data
+   3. Get similar equipment data
