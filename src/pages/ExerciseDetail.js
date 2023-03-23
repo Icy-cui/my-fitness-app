@@ -9,6 +9,8 @@ import SimilarExercises from '../components/SimilarExercises';
 export default function ExerciseDetail() {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,7 +28,13 @@ export default function ExerciseDetail() {
       console.log(exerciseVideosData)
       setExerciseVideos(exerciseVideosData.contents);
 
-      
+      // 推荐: similar exercise
+      const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+      setTargetMuscleExercises(targetMuscleExercisesData);
+
+       // 推荐: similar equipment
+      const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+      setEquipmentExercises(equipmentExercisesData);
     };
 
     fetchExercisesData();
@@ -38,7 +46,7 @@ export default function ExerciseDetail() {
     <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
     <Detail exerciseDetail={exerciseDetail} />
     <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-    <SimilarExercises />
+    <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises}/>
   </Box>
   )
 }
