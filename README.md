@@ -27,3 +27,4 @@ You can run this project by running command `npm start`
 3.  Horizontal scroll bar (use specific version of react-horizontal-scrolling-menu)
 4.  Search results
 
+## Exercise component
