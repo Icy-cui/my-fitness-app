@@ -45,6 +45,3 @@ You can run this project by running command `npm start`
    1. Use Component: Horizontal scroll bar
    2. Get similar exercise data
    3. Get similar equipment data
-
-## Footer
-1. Add footer image, company, and other information
